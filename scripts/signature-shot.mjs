@@ -1,0 +1,70 @@
+import { chromium } from "playwright";
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+
+const BASE = process.env.BASE_URL ?? "http://localhost:3000";
+const OUT_DIR = path.resolve("screenshots");
+const VIEWPORT = { width: 1440, height: 1400 }; // Tall viewport to capture full section
+
+await mkdir(OUT_DIR, { recursive: true });
+
+const browser = await chromium.launch({
+  executablePath:
+    process.env.CHROME_PATH ??
+    "/home/dendo/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome",
+});
+const context = await browser.newContext({
+  viewport: VIEWPORT,
+  deviceScaleFactor: 2,
+});
+const page = await context.newPage();
+await page.setExtraHTTPHeaders({ "Cache-Control": "no-cache, no-store" });
+await context.clearCookies();
+
+await page.goto(`${BASE}/about?t=${Date.now()}`, { waitUntil: "networkidle" });
+await page.evaluate(async () => {
+  if (document.fonts && document.fonts.ready) await document.fonts.ready;
+});
+
+const docHeight = await page.evaluate(
+  () => document.documentElement.scrollHeight,
+);
+for (let y = 0; y <= docHeight; y += 600) {
+  await page.evaluate(
+    (yy) => window.scrollTo({ top: yy, behavior: "instant" }),
+    y,
+  );
+  await page.waitForTimeout(180);
+}
+await page.waitForTimeout(800);
+
+// Find the signature section
+const found = await page.evaluate(() => {
+  const ps = Array.from(document.querySelectorAll("p"));
+  const target = ps.find((p) =>
+    p.textContent?.includes("— Signature"),
+  );
+  if (!target) return null;
+  let node = target;
+  while (node && node.tagName !== "SECTION") node = node.parentElement;
+  if (!node) return null;
+  const rect = node.getBoundingClientRect();
+  return { top: rect.top + window.scrollY, height: Math.ceil(rect.height) };
+});
+
+if (found) {
+  await page.evaluate(
+    (y) => window.scrollTo({ top: y, behavior: "instant" }),
+    found.top - 30,
+  );
+  await page.waitForTimeout(1500);
+
+  const captureH = Math.min(found.height + 60, 1400);
+  await page.screenshot({
+    path: path.join(OUT_DIR, "signature-section.png"),
+    clip: { x: 0, y: 0, width: 1440, height: captureH },
+  });
+  console.log("Saved signature section (h=" + captureH + ")");
+}
+
+await browser.close();

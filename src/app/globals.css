@@ -1,26 +1,370 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Drasil Digital — craft palette: washi, deep forest, weathered wood, brass */
+  --color-paper: #f8f5f0;
+  --color-paper-deep: #efe9dd;
+  --color-ink: #2a2a2a;
+  --color-ink-soft: #443a30;
+  --color-stone: #8a7e6f;
+  --color-line: #d8d0c2;
+  --color-line-strong: #b8a78c;
+  --color-accent: #2d5a3f;
+  --color-accent-deep: #1f3f2b;
+  --color-accent-tint: #d6dfd6;
+  --color-wood: #6b4423;
+  --color-wood-soft: #8a6543;
+  --color-wood-deep: #4d3018;
+  --color-brass: #b8860b;
+  --color-brass-soft: #c89d2f;
+
+  /* Map shadcn tokens onto our palette */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography */
+  --font-jp-display: var(--font-shippori-mincho), var(--font-zen-old-mincho), "Hiragino Mincho ProN", "Yu Mincho", "A1 Mincho", serif;
+  --font-jp-body: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-en-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-en-numeral: var(--font-dm-serif), "DM Serif Display", "Cormorant Garamond", Georgia, serif;
+  --font-en-body: var(--font-source-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-jp-body);
+  --font-serif: var(--font-jp-display);
+
+  /* Radii — keep small per Refined Minimalism */
+  --radius: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #f8f5f0;
+  --foreground: #2a2a2a;
+  --card: #f8f5f0;
+  --card-foreground: #2a2a2a;
+  --popover: #f8f5f0;
+  --popover-foreground: #2a2a2a;
+  --primary: #2d5a3f;
+  --primary-foreground: #f8f5f0;
+  --secondary: #efe9dd;
+  --secondary-foreground: #2a2a2a;
+  --muted: #efe9dd;
+  --muted-foreground: #443a30;
+  --accent: #2d5a3f;
+  --accent-foreground: #f8f5f0;
+  --destructive: #a23a25;
+  --border: #d8d0c2;
+  --input: #d8d0c2;
+  --ring: #2d5a3f;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-family: var(--font-jp-body);
+    color: var(--foreground);
+    background-color: var(--background);
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jp-display);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Section chapter number — small refined English serif label */
+  .chapter-num {
+    font-family: var(--font-en-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: lowercase;
+  }
+
+  /* Hairline divider */
+  .rule-line {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    margin: 0;
+  }
+
+  /* Display heading utility */
+  .display-heading {
+    font-family: var(--font-jp-display);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0.05em;
+  }
+
+  /* Subtle paper-grain noise overlay (applied to body via ::before in layout) */
+  .paper-grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+}
+
+/* Refined link underline animation (used inside rich text) */
+@layer utilities {
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 320ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* Service section image — soft feathered edges (outside @layer for reliable mask) */
+.service-image {
+  background-color: transparent;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 0.5) 80%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 0.5) 80%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.06))
+    drop-shadow(0 8px 32px rgba(0, 0, 0, 0.04));
+  transition:
+    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-mask-image 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    mask-image 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-image:hover {
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0.5) 88%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0.5) 88%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.08))
+    drop-shadow(0 12px 40px rgba(0, 0, 0, 0.05));
+}
+
+@media (max-width: 768px) {
+  .service-image {
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.05))
+      drop-shadow(0 4px 18px rgba(0, 0, 0, 0.03));
+  }
+  .service-image:hover {
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.06))
+      drop-shadow(0 6px 22px rgba(0, 0, 0, 0.04));
+  }
+}
+
+/* About 02/Reality — magazine-spread layout */
+.reality-feather {
+  /* Mobile: vertical fade — top fades in, bottom fades out into text */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 5%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.6) 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 5%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.6) 95%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 768px) {
+  /* Bleed the image cell to the viewport's left edge.
+     Distance from the cell's left to viewport-left is the container's
+     left padding (40px) plus the auto-margin when viewport > 1200px. */
+  .reality-bleed-cell {
+    margin-left: calc(-1 * (40px + max(0px, (100vw - 1200px) / 2)));
+    width: calc(100% + 40px + max(0px, (100vw - 1200px) / 2));
+  }
+
+  .reality-feather {
+    /* Desktop: only the right edge fades into the text column */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.6) 95%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0.6) 95%,
+      transparent 100%
+    );
+  }
+}
+
+/* Home 08/About teaser — left-bleed image with right-edge feather */
+.about-feather {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 5%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.6) 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 5%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(0, 0, 0, 0.6) 95%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .about-bleed-cell {
+    margin-left: calc(-1 * (40px + max(0px, (100vw - 1200px) / 2)));
+    width: calc(100% + 40px + max(0px, (100vw - 1200px) / 2));
+  }
+
+  .about-feather {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 78%,
+      rgba(0, 0, 0, 0.6) 94%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 78%,
+      rgba(0, 0, 0, 0.6) 94%,
+      transparent 100%
+    );
+  }
+}
+
+/* Craft-feel wood-grain hairlines — used behind hero */
+.wood-grain {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 6px,
+    rgba(107, 68, 35, 0.035) 6px,
+    rgba(107, 68, 35, 0.035) 7px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 38px,
+    rgba(107, 68, 35, 0.05) 38px,
+    rgba(107, 68, 35, 0.05) 39px
+  );
+}
+
+/* Subtle washi paper noise — softer than the global paper-grain */
+.washi-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.27  0 0 0 0 0.14  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Warm desaturated craft filter for ambient photos */
+.craft-photo {
+  filter: grayscale(0.55) sepia(0.18) contrast(0.95) brightness(0.96);
+}
+
+/* Hero scroll hint — gentle float */
+@keyframes hero-scroll-float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 6px); }
+}
+.hero-scroll-hint {
+  animation: hero-scroll-float 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-hint {
+    animation: none;
+  }
 }
