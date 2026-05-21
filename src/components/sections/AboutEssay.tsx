@@ -122,58 +122,95 @@ export function AboutEssay() {
               </div>
             );
 
-            if (part.en === "Reality") {
+            // Only Reality (photo, B&W) and Why AI (benchmark ink illustration)
+            // keep their bleed images. Arrival and Vision are typography-only.
+            const imageMap: Record<
+              string,
+              { src: string; overlay: string; position: string; mono?: boolean }
+            > = {
+              Reality: {
+                src: "/images/problem-workshop.webp",
+                overlay: "rgba(60, 60, 60, 0.18)",
+                position: "center",
+                mono: true,
+              },
+              "Why AI": {
+                src: "/images/about-craft-balance.webp",
+                overlay: "rgba(80, 70, 55, 0.04)",
+                position: "70% center",
+              },
+            };
+            const conf = imageMap[part.en];
+
+            if (!conf) {
+              // TODO: Vision 章は、必要なら墨絵タッチの建築線画
+              // (柱・梁・図面の断片など)をここに差し込む。
+              // 現状はタイポと余白のみで構成。
               return (
                 <Reveal
                   key={part.num}
                   delay={0.1 + i * 0.04}
-                  className="md:col-span-12"
+                  className="md:col-span-9 md:col-start-3"
                 >
                   <article className={separator}>
-                    <div className="grid grid-cols-1 md:grid-cols-12 md:gap-0 md:items-stretch">
-                      {/* Left: workshop image bleeds to viewport-left, feathers right (desktop) / top+bottom (mobile) */}
-                      <div className="md:col-span-5 reality-bleed-cell">
-                        <div className="reality-feather relative w-full aspect-[4/3] md:aspect-auto md:h-full">
-                          <Image
-                            src="/images/problem-workshop.webp"
-                            alt=""
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover"
-                          />
-                          {/* Editorial gray overlay — sinks the image into the page tone */}
-                          <div
-                            aria-hidden
-                            className="absolute inset-0 pointer-events-none"
-                            style={{
-                              backgroundColor: "rgba(60, 60, 60, 0.18)",
-                            }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Right: text — feather replaces the hard separator */}
-                      <div className="md:col-span-7 md:pl-12 mt-2 md:mt-0 pt-2 md:pt-0">
-                        {eyebrow}
-                        {heading}
-                        {body}
-                      </div>
-                    </div>
+                    {eyebrow}
+                    {heading}
+                    {body}
                   </article>
                 </Reveal>
               );
             }
 
+            // Alternate sides for the two chapters that keep images
+            const imageOnLeft = i % 2 === 0;
+
             return (
               <Reveal
                 key={part.num}
                 delay={0.1 + i * 0.04}
-                className="md:col-span-9 md:col-start-3"
+                className="md:col-span-12"
               >
                 <article className={separator}>
-                  {eyebrow}
-                  {heading}
-                  {body}
+                  <div className="grid grid-cols-1 md:grid-cols-12 md:gap-0 md:items-stretch">
+                    {/* Image cell */}
+                    <div
+                      className={`md:col-span-5 reality-bleed-cell ${
+                        imageOnLeft ? "" : "md:order-2 reality-bleed-cell--right"
+                      }`}
+                    >
+                      <div className="reality-feather relative w-full aspect-[4/3] md:aspect-auto md:h-full">
+                        <Image
+                          src={conf.src}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                          style={{
+                            objectPosition: conf.position,
+                            filter: conf.mono
+                              ? "grayscale(1) contrast(0.92) brightness(1.03)"
+                              : undefined,
+                          }}
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 pointer-events-none"
+                          style={{ backgroundColor: conf.overlay }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Text cell */}
+                    <div
+                      className={`md:col-span-7 mt-2 md:mt-0 pt-2 md:pt-0 ${
+                        imageOnLeft ? "md:pl-12" : "md:order-1 md:pr-12"
+                      }`}
+                    >
+                      {eyebrow}
+                      {heading}
+                      {body}
+                    </div>
+                  </div>
                 </article>
               </Reveal>
             );

@@ -19,7 +19,7 @@ export function Footer() {
           }}
         >
           <p
-            className="text-[26px] md:text-[34px] leading-[1.5] font-medium"
+            className="text-[26px] md:text-[34px] leading-[1.5] font-medium jp-phrase"
             style={{
               fontFamily: "var(--font-jp-body)",
               letterSpacing: "0.06em",

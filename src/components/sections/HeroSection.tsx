@@ -271,8 +271,20 @@ export function HeroSection() {
                   </span>
                 </motion.div>
 
-                {/* Initial fee — the visual HERO: bold half-price callout */}
-                <motion.div variants={numeral} className="mb-8 md:mb-10">
+                {/* Initial fee card — visual hero of the price column */}
+                <motion.div
+                  variants={numeral}
+                  className="p-6 md:p-8 rounded-[2px] border"
+                  style={{
+                    borderColor:
+                      "color-mix(in oklab, var(--color-wood) 18%, transparent)",
+                    backgroundColor:
+                      "color-mix(in oklab, var(--color-paper-deep) 55%, transparent)",
+                    // Query container so the giant figure below scales to the
+                    // card's actual width instead of the viewport.
+                    containerType: "inline-size",
+                  }}
+                >
                   {/* Limited-3 badge: brass-bordered tag */}
                   <div
                     className="inline-flex items-center gap-2 px-3 py-1.5 mb-5"
@@ -311,7 +323,7 @@ export function HeroSection() {
                     初期費用
                   </p>
 
-                  {/* Strikethrough original price — small, supporting */}
+                  {/* Strikethrough original price — supporting context for the discount */}
                   <div className="flex items-baseline gap-3 mb-1.5">
                     <span
                       aria-hidden
@@ -326,16 +338,6 @@ export function HeroSection() {
                     >
                       ¥78,000
                     </span>
-                    <span
-                      className="text-[10.5px] tracking-[0.2em] uppercase"
-                      style={{
-                        fontFamily: "var(--font-en-display)",
-                        fontStyle: "italic",
-                        color: "var(--color-stone)",
-                      }}
-                    >
-                      → half
-                    </span>
                   </div>
 
                   {/* GIANT discounted price — the visual hero */}
@@ -346,7 +348,7 @@ export function HeroSection() {
                       style={{
                         fontFamily: "var(--font-en-numeral)",
                         color: "var(--color-wood)",
-                        fontSize: "clamp(2.6rem, 5.4vw, 4.4rem)",
+                        fontSize: "clamp(2.2rem, 14.8cqw, 4.4rem)",
                         letterSpacing: "-0.02em",
                       }}
                     >
@@ -357,7 +359,7 @@ export function HeroSection() {
                       style={{
                         fontFamily: "var(--font-en-numeral)",
                         color: "var(--color-ink)",
-                        fontSize: "clamp(4.8rem, 12vw, 9.5rem)",
+                        fontSize: "clamp(4rem, 32cqw, 8rem)",
                         letterSpacing: "-0.04em",
                         fontWeight: 400,
                       }}
@@ -374,23 +376,21 @@ export function HeroSection() {
                       lineHeight: 1.75,
                     }}
                   >
-                    税抜 / 税込 ¥42,900(通常 ¥78,000 のところ半額)
+                    税抜 / 税込 ¥42,900
                   </p>
                 </motion.div>
 
-                {/* Divider — hairline */}
-                <motion.span
+                {/* Monthly fee — supporting role, indented under the initial card with a left rule */}
+                <motion.div
                   variants={item}
-                  aria-hidden
-                  className="block h-px w-full mb-7 md:mb-8"
+                  className="relative mt-7 md:mt-8 pl-5 md:pl-6"
                   style={{
-                    backgroundColor: "var(--color-wood)",
-                    opacity: 0.25,
+                    borderLeftWidth: "2px",
+                    borderLeftStyle: "solid",
+                    borderLeftColor:
+                      "color-mix(in oklab, var(--color-wood) 22%, transparent)",
                   }}
-                />
-
-                {/* Monthly fee — supporting role, smaller scale */}
-                <motion.div variants={item} className="relative">
+                >
                   <p
                     className="text-[11.5px] md:text-[12px] tracking-[0.2em] mb-2"
                     style={{
@@ -447,31 +447,6 @@ export function HeroSection() {
                   </p>
                 </motion.div>
 
-                {/* Decorative dots — small craft accent */}
-                <motion.div
-                  variants={item}
-                  className="absolute -top-3 right-0 hidden md:flex gap-1.5"
-                  aria-hidden
-                >
-                  <span
-                    className="block size-[5px] rounded-full"
-                    style={{ backgroundColor: "var(--color-brass)" }}
-                  />
-                  <span
-                    className="block size-[5px] rounded-full"
-                    style={{
-                      backgroundColor: "var(--color-brass)",
-                      opacity: 0.5,
-                    }}
-                  />
-                  <span
-                    className="block size-[5px] rounded-full"
-                    style={{
-                      backgroundColor: "var(--color-brass)",
-                      opacity: 0.25,
-                    }}
-                  />
-                </motion.div>
               </div>
             </div>
 

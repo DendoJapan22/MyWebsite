@@ -1,13 +1,14 @@
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 
 type Stat = { num: string; unit: string; label: string };
 
 const NUMBERS: Stat[] = [
-  { num: "3", unit: "倍", label: "平均問い合わせ\n増加(目標値)" },
-  { num: "4", unit: "週間", label: "契約から\n公開まで" },
-  { num: "1", unit: "秒以内", label: "ページの\n表示速度" },
-  { num: "12", unit: "ヶ月", label: "最低契約期間" },
+  { num: "4", unit: "週間", label: "ご契約から\n公開まで" },
+  { num: "1", unit: "秒以内", label: "ページの\n表示速度(目安)" },
+  { num: "1", unit: "件 / 月", label: "施工事例の\n継続追加" },
+  { num: "12", unit: "ヶ月", label: "責任を持って\n伴走する期間" },
 ];
 
 export function NumbersSection() {
@@ -17,7 +18,7 @@ export function NumbersSection() {
       <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 mb-12 md:mb-20">
         <div className="md:col-span-5">
           <Reveal>
-            <p className="chapter-num">04 / Numbers</p>
+            <p className="chapter-num">04 / Promises</p>
           </Reveal>
           <Reveal delay={0.04}>
             <p
@@ -27,22 +28,22 @@ export function NumbersSection() {
                 fontStyle: "italic",
               }}
             >
-              Numbers that matter
+              Our promises, in numbers
             </p>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="display-heading mt-7 text-[clamp(1.7rem,3.4vw,2.6rem)] text-ink leading-[1.4]">
-              数字で見る、
+              数字で示す、
               <br />
-              <span className="whitespace-nowrap">ドラシルデジタル。</span>
+              <span className="whitespace-nowrap">お約束。</span>
             </h2>
           </Reveal>
         </div>
         <div className="md:col-span-7 md:pt-2 mt-6 md:mt-0">
           <Reveal delay={0.16}>
             <p className="text-[14.5px] md:text-[15.5px] leading-[2.05] text-ink-soft max-w-[34rem]">
-              制作の品質と運用の手応えを、数字でも示しています。
-              小さな工房だからこそ、ひとつひとつの指標を丁寧に。
+              私たちが工務店さまにお約束できることを、数字で簡潔にまとめました。
+              小さな工房だからこそ、一つひとつの約束を丁寧に守ります。
             </p>
           </Reveal>
         </div>
@@ -90,10 +91,13 @@ export function NumbersSection() {
 
       {/* Disclaimer — fully outside the grid */}
       <Reveal delay={0.4}>
-        <p className="mt-10 md:mt-12 text-[12px] leading-[2] text-stone max-w-[44rem]">
-          ※ 「3倍」はWeb改善前後の参考目標値であり、実績を保証するものではございません。
-          <br />
+        <p className="mt-10 md:mt-12 text-[12px] leading-[2] text-stone max-w-[44rem] jp-phrase">
           ※ 「1秒以内」は当社の制作物における目安値であり、回線速度等の環境により変動します。
+          <br />
+          ※ 「12ヶ月」は月額運用プランの最低ご契約期間です。契約・解約の詳細条件は<Link
+            href="/legal/commerce"
+            className="underline decoration-stone/40 underline-offset-2 hover:text-ink hover:decoration-ink transition-colors"
+          >特定商取引法に基づく表記</Link>をご確認ください。
         </p>
       </Reveal>
     </Section>

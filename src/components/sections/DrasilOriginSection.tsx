@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -19,10 +20,35 @@ export function DrasilOriginSection() {
   return (
     <section
       id="drasil"
-      className="relative border-t border-line"
+      className="relative border-t border-line overflow-hidden"
       style={{ backgroundColor: "var(--color-accent-tint)" }}
     >
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-32">
+      {/* World-tree watercolor — visible enough to read as a tree */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 z-0 pointer-events-none hidden md:block"
+        style={{ width: "60%" }}
+      >
+        <Image
+          src="/images/drasil-tree.webp"
+          alt=""
+          fill
+          sizes="60vw"
+          className="object-cover"
+          style={{
+            objectPosition: "20% center",
+            opacity: 0.32,
+            mixBlendMode: "multiply",
+            filter: "grayscale(1) contrast(0.95)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.7) 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 90%, rgba(0,0,0,0.7) 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-4">
             <Reveal>

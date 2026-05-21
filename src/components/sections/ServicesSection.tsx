@@ -82,7 +82,11 @@ export function ServicesSection() {
                       fill
                       sizes="(max-width: 768px) 100vw, 180px"
                       className="object-cover"
-                      style={{ opacity: 0.92 }}
+                      style={{
+                        opacity: 0.92,
+                        filter:
+                          "grayscale(1) sepia(0.18) contrast(0.95) brightness(1.02)",
+                      }}
                     />
                   </div>
                 </RevealImage>

@@ -81,6 +81,41 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE_CONFIG.name,
+  alternateName: SITE_CONFIG.nameEn,
+  description: SITE_DESCRIPTION,
+  url: SITE_CONFIG.url,
+  telephone: SITE_CONFIG.phone,
+  email: SITE_CONFIG.email,
+  serviceType: "工務店向けWebサイト制作",
+  priceRange: "¥39,000〜¥78,000",
+  inLanguage: "ja-JP",
+  foundingDate: "2026-05",
+  founder: {
+    "@type": "Person",
+    name: "横澤 大輝",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: SITE_CONFIG.parentName,
+    alternateName: SITE_CONFIG.parentNameJp,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Japan",
+  },
+  knowsAbout: [
+    "Webサイト制作",
+    "Googleマップ最適化",
+    "MEO運用",
+    "工務店向けWeb集客",
+    "施工事例ページ制作",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,6 +127,12 @@ export default function RootLayout({
       className={`${zenOldMincho.variable} ${shipporiMincho.variable} ${notoSansJP.variable} ${fraunces.variable} ${dmSerifDisplay.variable} ${sourceSans.variable}`}
     >
       <body className="min-h-screen flex flex-col paper-grain">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

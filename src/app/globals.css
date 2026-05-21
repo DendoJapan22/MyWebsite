@@ -171,6 +171,14 @@
   .link-underline:hover {
     background-size: 100% 1px;
   }
+
+  /* Phrase-aware Japanese line breaking — wraps at 文節 boundaries so
+     words and number+counter pairs (e.g. 24時間) never split mid-token.
+     Falls back to normal wrapping where auto-phrase is unsupported. */
+  .jp-phrase {
+    line-break: strict;
+    word-break: auto-phrase;
+  }
 }
 
 /* Service section image — soft feathered edges (outside @layer for reliable mask) */
@@ -256,20 +264,45 @@
     width: calc(100% + 40px + max(0px, (100vw - 1200px) / 2));
   }
 
+  /* Mirror variant — bleeds to the viewport's right edge */
+  .reality-bleed-cell--right {
+    margin-left: 0;
+    margin-right: calc(-1 * (40px + max(0px, (100vw - 1200px) / 2)));
+    width: calc(100% + 40px + max(0px, (100vw - 1200px) / 2));
+  }
+
   .reality-feather {
-    /* Desktop: only the right edge fades into the text column */
+    /* Desktop: only a narrow soft edge fades into the text column */
     -webkit-mask-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0.6) 95%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0.7) 97%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0.6) 95%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0.7) 97%,
+      transparent 100%
+    );
+  }
+
+  /* Mirror: narrow soft edge on the left for right-bleed images */
+  .reality-bleed-cell--right .reality-feather {
+    -webkit-mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0.7) 97%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0.7) 97%,
       transparent 100%
     );
   }

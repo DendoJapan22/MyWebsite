@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   WORKS_SAMPLES,
   WORKS_DISCLAIMER,
@@ -10,12 +11,12 @@ import { WORKS_THUMBS, ThumbHouse } from "@/components/sections/WorksThumbs";
 
 const STATUS_LABEL: Record<WorkStatus, string> = {
   sample: "鈴木工務店(サンプルサイト)",
-  preparing: "準備中",
+  preparing: "次の工務店さま、募集中",
 };
 
 const BADGE_LABEL: Record<WorkStatus, string> = {
   sample: "Sample",
-  preparing: "Soon",
+  preparing: "Open",
 };
 
 export function WorksTeaserSection() {
@@ -111,6 +112,11 @@ export function WorksTeaserSection() {
                 >
                   {STATUS_LABEL[work.status]}
                 </h3>
+                {!isSample && work.description && (
+                  <p className="mt-3 text-[12.5px] leading-[1.95] text-ink-soft max-w-[18rem]">
+                    {work.description}
+                  </p>
+                )}
                 {isSample && (
                   <p
                     className="mt-3 inline-flex items-center text-[11.5px] tracking-[0.18em] text-accent"
@@ -125,6 +131,23 @@ export function WorksTeaserSection() {
                       className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1"
                     >
                       ↗
+                    </span>
+                  </p>
+                )}
+                {!isSample && (
+                  <p
+                    className="mt-4 inline-flex items-center text-[11.5px] tracking-[0.18em] text-accent"
+                    style={{
+                      fontFamily: "var(--font-en-display)",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    Apply as partner
+                    <span
+                      aria-hidden
+                      className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      →
                     </span>
                   </p>
                 )}
@@ -143,6 +166,14 @@ export function WorksTeaserSection() {
                   >
                     {cardInner}
                   </a>
+                ) : !isSample ? (
+                  <Link
+                    href="/contact"
+                    aria-label={`${work.industry}向け制作のパートナー枠についてお問い合わせ`}
+                    className={cardClasses}
+                  >
+                    {cardInner}
+                  </Link>
                 ) : (
                   <div className={cardClasses}>{cardInner}</div>
                 )}

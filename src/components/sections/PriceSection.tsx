@@ -148,12 +148,6 @@ export function PriceSection() {
               <p className="mt-5 text-[13.5px] tracking-[0.05em] text-ink-soft/80">
                 税抜 / 税込 {yen(PRICING.initialPartnerTaxIn)}
               </p>
-              <p
-                className="mt-3 text-[12.5px] tracking-[0.04em] text-stone"
-                style={{ lineHeight: 1.8 }}
-              >
-                ※ 第1期パートナー(先着3社さま)限定の半額価格。4社目以降は通常 {yen(PRICING.initial)}(税込 {yen(PRICING.initialTaxIn)})となります。
-              </p>
 
               <ul className="mt-12 space-y-4">
                 {SERVICE_INCLUDES_INITIAL.map((item) => (
@@ -181,32 +175,42 @@ export function PriceSection() {
             }}
           >
             <div className="mx-auto max-w-[420px] md:px-6">
-              <p
-                className="text-[11px] tracking-[0.3em] uppercase"
-                style={{
-                  fontFamily: "var(--font-en-display)",
-                  fontStyle: "italic",
-                  color: "var(--color-accent)",
-                }}
-              >
-                Monthly Fee
-              </p>
-
-              <div className="mt-12 md:mt-16 flex items-baseline gap-3 flex-wrap">
-                <span
-                  className="leading-none text-ink-soft"
+              {/* Wrapper height-matched to the Initial column's label row,
+                  whose height is set by the "先着 3 社さま 半額" badge — keeps
+                  the two columns vertically in step. */}
+              <div className="flex md:min-h-[1.75rem] md:items-end">
+                <p
+                  className="text-[11px] tracking-[0.3em] uppercase"
                   style={{
-                    fontFamily: "var(--font-en-numeral)",
-                    fontWeight: 400,
-                    fontSize: "clamp(2.6rem, 5.4vw, 4rem)",
-                    letterSpacing: "-0.02em",
+                    fontFamily: "var(--font-en-display)",
+                    fontStyle: "italic",
+                    color: "var(--color-accent)",
                   }}
                 >
-                  {yen(PRICING.monthly)}
-                </span>
-                <span className="text-[14px] tracking-[0.14em] text-ink-soft/80">
-                  / 月
-                </span>
+                  Monthly Fee
+                </p>
+              </div>
+
+              {/* Figure zone height-matched to the Initial column
+                  (strikethrough row + headline figure) so ¥4,980 rests on
+                  the same baseline as ¥39,000 across the magazine spread. */}
+              <div className="mt-12 flex md:mt-14 md:items-end md:min-h-[calc(clamp(1.5rem,2.6vw,2.1rem)_+_0.25rem_+_clamp(4.4rem,10.5vw,7.6rem))]">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span
+                    className="leading-none text-ink-soft"
+                    style={{
+                      fontFamily: "var(--font-en-numeral)",
+                      fontWeight: 400,
+                      fontSize: "clamp(2.6rem, 5.4vw, 4rem)",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    {yen(PRICING.monthly)}
+                  </span>
+                  <span className="text-[14px] tracking-[0.14em] text-ink-soft/80">
+                    / 月
+                  </span>
+                </div>
               </div>
               <span aria-hidden className="mt-6 block h-px w-20 bg-ink" />
               <p className="mt-5 text-[13.5px] tracking-[0.05em] text-ink-soft/80">
@@ -247,7 +251,8 @@ export function PriceSection() {
               className="text-[13.5px] leading-[2] text-stone"
               style={{ fontFamily: "var(--font-jp-body)" }}
             >
-              ※ ページ数の上限は設けておりません。必要なボリュームでサイトを一式承ります。
+              ※ 第1期パートナー(先着3社さま)限定の半額価格。4社目以降は通常 {yen(PRICING.initial)}(税込 {yen(PRICING.initialTaxIn)})となります。
+              <br />※ ページ数の上限は設けておりません。必要なボリュームでサイトを一式承ります。
               <br />※ {PRICING.contractMonths}ヶ月のご契約をお願いしております。
               <br />※ 上記制限を超える作業や、大幅なデザイン変更・新規ページ追加等は別途お見積もりにて承ります。
             </p>

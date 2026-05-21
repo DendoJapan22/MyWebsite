@@ -16,6 +16,9 @@ export function AboutTeaserSection() {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                style={{
+                  filter: "grayscale(1) contrast(0.92) brightness(1.03)",
+                }}
               />
               {/* Editorial gray overlay */}
               <div

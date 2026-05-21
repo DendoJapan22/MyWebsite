@@ -35,14 +35,16 @@ export function ProcessSection() {
           </div>
         </div>
 
-        {/* Steps: 4 columns on desktop, stacked on mobile, hairlines between */}
+        {/* Steps: 4 columns on desktop, stacked on mobile, hairlines between.
+            Each column carries its matching watercolor object as a faint
+            watermark — the banner image, quartered, sits behind each phase. */}
         <div className="grid grid-cols-1 md:grid-cols-4 border-t border-line">
           {PROCESS_STEPS.map((step, i) => (
             <Reveal
               key={step.number}
               delay={0.05 + i * 0.08}
               className={[
-                "relative flex flex-col pt-10 md:pt-14 pb-0 px-5 md:px-7 lg:px-9",
+                "relative isolate flex flex-col pt-10 md:pt-14 pb-0 px-5 md:px-7 lg:px-9",
                 // Mobile dividers (between rows, not after last)
                 i < PROCESS_STEPS.length - 1
                   ? "border-b border-line md:border-b-0"
@@ -55,6 +57,25 @@ export function ProcessSection() {
                 i === PROCESS_STEPS.length - 1 ? "md:pr-0" : "",
               ].join(" ")}
             >
+              {/* Watercolor object for this phase — the banner image scaled
+                  to 4× column width and shifted to this column's quarter. */}
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10"
+                style={{
+                  backgroundImage: "url(/images/process-banner.webp)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "400% auto",
+                  backgroundPosition: `${(i / 3) * 100}% 42%`,
+                  filter: "grayscale(1) brightness(1.05)",
+                  opacity: 0.22,
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, transparent 0%, #000 24%, #000 78%, transparent 100%)",
+                  maskImage:
+                    "linear-gradient(to bottom, transparent 0%, #000 24%, #000 78%, transparent 100%)",
+                }}
+              />
+
               <span
                 className="block text-[12px] tracking-[0.15em] text-stone"
                 style={{
