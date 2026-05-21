@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { BrandMark } from "@/components/ui/BrandMark";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -40,16 +40,18 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link
             href="/"
-            className="group inline-flex items-center gap-3"
+            className="inline-flex items-center gap-3"
             onClick={() => setOpen(false)}
             aria-label={`${SITE_CONFIG.name} ${SITE_CONFIG.nameEn}`}
           >
-            <span
-              className="shrink-0"
-              style={{ color: "var(--color-wood-deep)" }}
-            >
-              <BrandMark className="size-[26px] md:size-[30px]" />
-            </span>
+            <Image
+              src="/images/drasil-logo-full.png"
+              alt=""
+              width={2000}
+              height={1186}
+              loading="eager"
+              className="h-10 w-auto md:h-12"
+            />
             <span className="flex flex-col leading-tight">
               <span
                 className="text-[17px] md:text-[19px] tracking-[0.08em] text-ink"
@@ -65,7 +67,7 @@ export function Header() {
                 style={{
                   fontFamily: "var(--font-en-display)",
                   fontStyle: "italic",
-                  color: "var(--color-wood)",
+                  color: "var(--color-accent)",
                 }}
               >
                 {SITE_CONFIG.nameEn}
