@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   tagline: "地方の工務店専門のWeb制作。",
   description: "地方の工務店向けWebサイト制作・集客運用",
   url: "https://example.com",
-  email: "drasil.digital@gmail.com",
+  email: "info@drasil.jp",
   phone: "080-1553-6788",
   phoneTel: "+819000000000",
   area: "全国対応(オンライン打ち合わせ)",
