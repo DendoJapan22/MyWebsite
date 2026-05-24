@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   parentNameJp: "ドラシル",
   tagline: "地方の工務店専門のWeb制作。",
   description: "地方の工務店向けWebサイト制作・集客運用",
-  url: "https://example.com",
+  url: "https://drasil.jp",
   email: "info@drasil.jp",
   phone: "080-1553-6788",
   phoneTel: "+819000000000",
