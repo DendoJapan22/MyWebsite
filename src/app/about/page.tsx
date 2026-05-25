@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "代表の手記",
   description:
     "ドラシルデジタル代表の長文の手記。なぜこの事業を立ち上げたのか、AIをどう活用するのか、5年後に何を目指しているのか。",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "お問い合わせ",
   description:
     "ドラシルデジタルへのお問い合わせ。お電話・メール・フォームのいずれもご利用いただけます。1〜2営業日以内にご返信いたします。",
+  alternates: { canonical: "/contact" },
 };
 
 const DIRECT_LINES = [

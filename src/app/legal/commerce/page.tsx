@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "特定商取引法に基づく表記",
   description:
     "ドラシルデジタル(屋号: Drasil)の特定商取引法に基づく表記ページです。販売事業者、提供サービス、販売価格、支払方法、役務の提供時期、解約・返金についてなどを記載しております。",
+  alternates: { canonical: "/legal/commerce" },
   robots: {
     index: false,
     follow: true,
