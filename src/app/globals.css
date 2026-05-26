@@ -42,7 +42,7 @@
   --color-ring: var(--ring);
 
   /* Typography */
-  --font-jp-display: var(--font-shippori-mincho), var(--font-zen-old-mincho), "Hiragino Mincho ProN", "Yu Mincho", "A1 Mincho", serif;
+  --font-jp-display: var(--font-shippori-mincho), "Hiragino Mincho ProN", "Yu Mincho", "A1 Mincho", serif;
   --font-jp-body: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-en-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-en-numeral: var(--font-dm-serif), "DM Serif Display", "Cormorant Garamond", Georgia, serif;

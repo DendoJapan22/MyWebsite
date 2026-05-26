@@ -24,6 +24,10 @@
 # production
 /build
 
+# screenshot scratchpad (for sharing with other AIs, not part of the site)
+/screenshots/
+/.tmp-hero-video/
+
 # misc
 .DS_Store
 *.pem

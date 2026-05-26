@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Zen_Old_Mincho,
   Shippori_Mincho_B1,
   Noto_Sans_JP,
   Fraunces,
@@ -12,23 +11,16 @@ import { Footer } from "@/components/layout/Footer";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
-const zenOldMincho = Zen_Old_Mincho({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-zen-old-mincho",
-  display: "swap",
-});
-
 const shipporiMincho = Shippori_Mincho_B1({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500"],
   variable: "--font-shippori-mincho",
   display: "swap",
 });
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500"],
   variable: "--font-noto-sans-jp",
   display: "swap",
 });
@@ -52,7 +44,7 @@ const dmSerifDisplay = DM_Serif_Display({
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400"],
   variable: "--font-source-sans",
   display: "swap",
 });
@@ -124,7 +116,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${zenOldMincho.variable} ${shipporiMincho.variable} ${notoSansJP.variable} ${fraunces.variable} ${dmSerifDisplay.variable} ${sourceSans.variable}`}
+      className={`${shipporiMincho.variable} ${notoSansJP.variable} ${fraunces.variable} ${dmSerifDisplay.variable} ${sourceSans.variable}`}
     >
       <body className="min-h-screen flex flex-col paper-grain">
         <script
