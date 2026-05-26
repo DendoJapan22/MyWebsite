@@ -95,7 +95,7 @@ export function PriceSection() {
                       fontFamily: "var(--font-en-display)",
                       fontStyle: "italic",
                       color: "var(--color-wood-deep)",
-                      fontWeight: 600,
+                      fontWeight: 500,
                     }}
                   >
                     先着 3 社さま 半額

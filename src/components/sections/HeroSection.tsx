@@ -196,7 +196,7 @@ export function HeroSection() {
                     style={{
                       fontFamily: "var(--font-jp-body)",
                       color: "var(--color-wood-deep)",
-                      fontWeight: 600,
+                      fontWeight: 500,
                       letterSpacing: "0.3em",
                     }}
                   >
@@ -211,7 +211,7 @@ export function HeroSection() {
                     fontSize: "clamp(2.2rem, 5.4vw, 4.6rem)",
                     lineHeight: 1.2,
                     letterSpacing: "0.02em",
-                    fontWeight: 600,
+                    fontWeight: 500,
                   }}
                 >
                   <motion.span
@@ -305,7 +305,7 @@ export function HeroSection() {
                         fontFamily: "var(--font-en-display)",
                         fontStyle: "italic",
                         color: "var(--color-wood-deep)",
-                        fontWeight: 600,
+                        fontWeight: 500,
                       }}
                     >
                       先着 3 社さま 限定 / Half price

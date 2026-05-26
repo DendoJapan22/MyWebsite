@@ -57,7 +57,7 @@ export function Header() {
                 className="text-[17px] md:text-[19px] tracking-[0.08em] text-ink"
                 style={{
                   fontFamily: "var(--font-jp-display)",
-                  fontWeight: 600,
+                  fontWeight: 500,
                 }}
               >
                 {SITE_CONFIG.name}

@@ -28,6 +28,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@fontsource/noto-sans-jp": "^5.2.9",
+    "@fontsource/shippori-mincho-b1": "^5.2.8",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -35,7 +37,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "joyo-kanji": "^0.2.1",
     "playwright": "^1.59.1",
+    "subset-font": "^2.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
