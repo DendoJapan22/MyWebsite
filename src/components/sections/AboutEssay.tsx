@@ -129,13 +129,13 @@ export function AboutEssay() {
               { src: string; overlay: string; position: string; mono?: boolean }
             > = {
               Reality: {
-                src: "/images/problem-workshop.webp",
+                src: "/images/problem-workshop-opt.webp",
                 overlay: "rgba(60, 60, 60, 0.18)",
                 position: "center",
                 mono: true,
               },
               "Why AI": {
-                src: "/images/about-craft-balance.webp",
+                src: "/images/about-craft-balance-opt.webp",
                 overlay: "rgba(80, 70, 55, 0.04)",
                 position: "70% center",
               },
@@ -184,6 +184,7 @@ export function AboutEssay() {
                           alt=""
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"
+                          loading="lazy"
                           className="object-cover"
                           style={{
                             objectPosition: conf.position,

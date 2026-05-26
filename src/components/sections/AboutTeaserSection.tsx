@@ -11,10 +11,11 @@ export function AboutTeaserSection() {
           <div className="md:col-span-6 about-bleed-cell">
             <RevealImage className="relative w-full aspect-[4/3] md:aspect-auto md:h-full about-feather">
               <Image
-                src="/images/problem-workshop.webp"
+                src="/images/problem-workshop-opt.webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
                 className="object-cover"
                 style={{
                   filter: "grayscale(1) contrast(0.92) brightness(1.03)",

@@ -59,7 +59,7 @@ export const SERVICES = [
     number: "01",
     title: "低コスト・高品質サイト制作",
     titleEn: "Web Production",
-    image: "/images/service-drafting.webp",
+    image: "/images/service-drafting-opt.webp",
     description:
       "ベース設計とコード生成はAIで効率化、デザインの最終調整と文章の仕上げは必ず人の手で。従来30〜100万円かかっていた制作を、品質を落とさず抑えた価格でご提供いたします。",
   },
@@ -67,7 +67,7 @@ export const SERVICES = [
     number: "02",
     title: "Googleマップ最適化(MEO)",
     titleEn: "Local SEO",
-    image: "/images/service-map.webp",
+    image: "/images/service-map-opt.webp",
     description:
       "「お住まいの地域名 + 工務店」「地域名 + リフォーム」などの検索で上位表示を狙います。投稿の初稿はAIで下準備し、口コミの返信文は必ず人の手で仕上げます。Googleビジネスプロフィールの整備まで含みます。",
   },
@@ -75,7 +75,7 @@ export const SERVICES = [
     number: "03",
     title: "施工事例の継続更新",
     titleEn: "Ongoing Updates",
-    image: "/images/service-photos.webp",
+    image: "/images/service-photos-opt.webp",
     description:
       "スマートフォンで撮影された写真をお送りいただくだけで、毎月1件、施工事例ページを追加いたします。写真の選定と紹介文の最終仕上げは、必ず人の手で行います。",
   },
@@ -179,7 +179,7 @@ export const WORKS_SAMPLES: readonly WorkSample[] = [
       "地方の工務店さまをモデルに制作したサンプルサイト。ドラシルデジタルの制作品質を、実際のページとしてご確認いただけます。",
     status: "sample",
     url: "https://koumuten-suzuki.vercel.app/",
-    image: "/images/works-suzuki-sample.webp",
+    image: "/images/works-suzuki-sample-opt.webp",
     imageAlt: "鈴木工務店 サンプルサイトのヒーローセクション",
   },
   {

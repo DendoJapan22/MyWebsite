@@ -65,6 +65,7 @@ export function WorksGrid() {
                         alt={work.imageAlt ?? ""}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
                         className="object-cover object-top"
                       />
                     ) : (

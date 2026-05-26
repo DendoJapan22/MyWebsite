@@ -45,10 +45,10 @@ export function Header() {
             aria-label={`${SITE_CONFIG.name} ${SITE_CONFIG.nameEn}`}
           >
             <Image
-              src="/images/drasil-logo-full.png"
+              src="/images/drasil-logo-full-opt.webp"
               alt=""
-              width={2000}
-              height={1186}
+              width={400}
+              height={237}
               loading="eager"
               className="h-10 w-auto md:h-12"
             />

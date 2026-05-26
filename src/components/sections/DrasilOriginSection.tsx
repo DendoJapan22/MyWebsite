@@ -30,10 +30,11 @@ export function DrasilOriginSection() {
         style={{ width: "60%" }}
       >
         <Image
-          src="/images/drasil-tree.webp"
+          src="/images/drasil-tree-opt.webp"
           alt=""
           fill
           sizes="60vw"
+          loading="lazy"
           className="object-cover"
           style={{
             objectPosition: "20% center",

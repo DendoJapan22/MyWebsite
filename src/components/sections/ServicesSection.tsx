@@ -81,6 +81,7 @@ export function ServicesSection() {
                       alt=""
                       fill
                       sizes="(max-width: 768px) 100vw, 180px"
+                      loading="lazy"
                       className="object-cover"
                       style={{
                         opacity: 0.92,

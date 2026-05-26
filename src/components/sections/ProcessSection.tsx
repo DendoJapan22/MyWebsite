@@ -63,7 +63,7 @@ export function ProcessSection() {
                 aria-hidden
                 className="absolute inset-0 -z-10"
                 style={{
-                  backgroundImage: "url(/images/process-banner.webp)",
+                  backgroundImage: "url(/images/process-banner-opt.webp)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "400% auto",
                   backgroundPosition: `${(i / 3) * 100}% 42%`,

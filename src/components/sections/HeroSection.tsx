@@ -78,7 +78,7 @@ export function HeroSection() {
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <Image
-          src="/images/hero-washi.webp"
+          src="/images/hero-washi-opt.webp"
           alt=""
           fill
           sizes="100vw"
@@ -98,7 +98,7 @@ export function HeroSection() {
         style={{ width: "26%" }}
       >
         <Image
-          src="/images/problem-workshop.webp"
+          src="/images/problem-workshop-opt.webp"
           alt=""
           fill
           sizes="26vw"

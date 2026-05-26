@@ -24,10 +24,11 @@ export function Bridge({ quote, signature = "ドラシルデジタル" }: Bridge
         className="absolute inset-x-0 top-0 z-0 pointer-events-none h-[60px] md:h-[80px]"
       >
         <Image
-          src="/images/divider-ink.webp"
+          src="/images/divider-ink-opt.webp"
           alt=""
           fill
           sizes="100vw"
+          loading="lazy"
           className="object-cover object-top"
           style={{
             opacity: 0.42,
