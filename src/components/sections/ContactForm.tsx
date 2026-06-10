@@ -5,6 +5,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
+// Web3Forms のアクセスキー（これは「公開してよい」キーです。秘密のAPIキーとは別物）。
+// 取得方法: https://web3forms.com/ で受信したいメールアドレスを登録 → 届いたキーを下に貼る。
+// Cloudflare Pages の環境変数 NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY で差し替えても動きます。
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "d846a9f6-b2ea-4e77-a49f-55e6d15fdafa";
+
 const SUBJECTS = [
   { value: "new", label: "新規サイト制作のご相談" },
   { value: "renewal", label: "既存サイトのリニューアル" },
@@ -54,6 +60,7 @@ const errorCls = "mt-3 text-[12.5px] tracking-[0.04em] text-accent";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -72,11 +79,50 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: FormValues) => {
-    await new Promise((r) => setTimeout(r, 600));
-    // eslint-disable-next-line no-console
-    console.log("[ContactForm] submission", data);
-    setSubmitted(true);
-    reset();
+    setError(null);
+
+    const subjectLabel =
+      SUBJECTS.find((s) => s.value === data.subject)?.label ?? data.subject;
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `【ドラシルデジタル】お問い合わせ（${subjectLabel}）`,
+          from_name: "ドラシルデジタル お問い合わせフォーム",
+          // 送信者のアドレスを返信先に設定（Gmailでそのまま返信できる）
+          replyto: data.email,
+          botcheck: false,
+          // 以下は受信メールの本文にそのまま表示される項目
+          "お名前": data.name,
+          "会社名・屋号": data.company || "（未記入）",
+          "電話番号": data.phone,
+          "メールアドレス": data.email,
+          "ご相談内容": subjectLabel,
+          "詳細メッセージ": data.message || "（未記入）",
+        }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        reset();
+      } else {
+        setError(
+          "送信に失敗しました。お手数ですが、お電話またはメールで直接ご連絡ください。"
+        );
+      }
+    } catch {
+      setError(
+        "通信エラーが発生しました。お手数ですが、お電話またはメールで直接ご連絡ください。"
+      );
+    }
   };
 
   if (submitted) {
@@ -356,6 +402,15 @@ export function ContactForm() {
           </p>
         </div>
       </div>
+
+      {error && (
+        <p
+          role="alert"
+          className="mt-8 text-[13.5px] tracking-[0.04em] text-accent leading-[1.9]"
+        >
+          {error}
+        </p>
+      )}
     </form>
   );
 }
