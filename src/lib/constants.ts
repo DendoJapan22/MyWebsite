@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   url: "https://drasil.jp",
   email: "info@drasil.jp",
   phone: "080-1553-6788",
-  phoneTel: "+819000000000",
+  phoneTel: "+818015536788",
   area: "全国対応(オンライン打ち合わせ)",
   areaList: ["全国"],
 } as const;
