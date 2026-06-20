@@ -423,7 +423,7 @@ export function HeroSection() {
                         fontWeight: 400,
                       }}
                     >
-                      4,980
+                      3,980
                     </span>
                     <span
                       className="ml-1 text-[12.5px] tracking-[0.06em]"
@@ -443,7 +443,7 @@ export function HeroSection() {
                       lineHeight: 1.75,
                     }}
                   >
-                    税込 ¥5,478 / サーバー・更新・MEO運用 すべて込み
+                    税込 ¥4,378 / サーバー・更新・MEO運用 すべて込み
                   </p>
                 </motion.div>
 

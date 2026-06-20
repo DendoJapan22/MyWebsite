@@ -192,7 +192,7 @@ export function PriceSection() {
               </div>
 
               {/* Figure zone height-matched to the Initial column
-                  (strikethrough row + headline figure) so ¥4,980 rests on
+                  (strikethrough row + headline figure) so ¥3,980 rests on
                   the same baseline as ¥39,000 across the magazine spread. */}
               <div className="mt-12 flex md:mt-14 md:items-end md:min-h-[calc(clamp(1.5rem,2.6vw,2.1rem)_+_0.25rem_+_clamp(4.4rem,10.5vw,7.6rem))]">
                 <div className="flex items-baseline gap-3 flex-wrap">

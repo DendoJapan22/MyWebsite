@@ -99,7 +99,7 @@ export const SITE_CONFIG = {
 
 export const PRICING = {
   initial: 58000,
-  monthly: 4980,
+  monthly: 3980,
 };
 ```
 
@@ -348,7 +348,7 @@ Google集客運用をご提供しています。
 ┌─────────────────────┐
 │  月額運用費          │
 │                      │
-│  ¥4,980              │
+│  ¥3,980              │
 │  / 月 (税抜)         │
 │                      │
 │  ─ サーバー代        │

@@ -11,7 +11,7 @@ test.describe("ホームページ (LP)", () => {
 
   test("ヒーローに月額価格が大きく表示される", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("4,980").first()).toBeVisible();
+    await expect(page.getByText("3,980").first()).toBeVisible();
   });
 
   test("CTAボタンから /contact フォームページに遷移する", async ({ page }) => {

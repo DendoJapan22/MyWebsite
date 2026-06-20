@@ -18,8 +18,8 @@ export const PRICING = {
   initialTaxIn: 85800,
   initialPartner: 39000,
   initialPartnerTaxIn: 42900,
-  monthly: 4980,
-  monthlyTaxIn: 5478,
+  monthly: 3980,
+  monthlyTaxIn: 4378,
   contractMonths: 12,
 } as const;
 
