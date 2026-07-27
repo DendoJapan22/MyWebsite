@@ -56,17 +56,7 @@ const ROWS: Row[] = [
       </>
     ),
   },
-  {
-    label: "URL",
-    value: (
-      <>
-        本サイト
-        <span className="block mt-2 text-[13px] text-stone">
-          ※ 独自ドメインは契約後に取得し、改めてご案内いたします
-        </span>
-      </>
-    ),
-  },
+  { label: "URL", value: SITE_CONFIG.url },
   {
     label: "提供サービス",
     value: (
@@ -88,11 +78,13 @@ const ROWS: Row[] = [
           </p>
           <ul className="mt-2 space-y-1.5">
             <li>サーバー・ドメイン管理</li>
-            <li>軽微な修正対応(月3回まで、1回あたり30分以内)</li>
+            <li>軽微な修正対応(月2回まで)</li>
             <li>施工事例の追加(月1件、写真および文章)</li>
-            <li>Googleマップ最適化(MEO)運用(月4回投稿、口コミ返信対応)</li>
             <li>月次レポートの提供</li>
           </ul>
+          <p className="mt-3 text-[13px] text-stone">
+            ※ MEO(Googleマップ最適化)の月次運用(投稿代行・口コミ返信代行など)は月額プランに含まれません。Googleビジネスプロフィールの新規構築・初期最適化は、初期費用に含まれます。
+          </p>
         </div>
         <div>
           <p
@@ -115,12 +107,7 @@ const ROWS: Row[] = [
     label: "販売価格",
     value: (
       <ul className="space-y-3">
-        <li>
-          初期費用: 78,000円(税抜)/ 85,800円(税込)
-          <span className="block mt-1.5 text-[13px] text-stone">
-            ※ 第1期パートナー(先着3社)は半額の 39,000円(税抜)/ 42,900円(税込)にて提供
-          </span>
-        </li>
+        <li>初期費用: 22,000円(税抜)/ 24,200円(税込)</li>
         <li>月額運用費: 3,980円(税抜)/ 4,378円(税込)</li>
       </ul>
     ),
@@ -282,9 +269,9 @@ export default function CommercePage() {
                 fontStyle: "italic",
               }}
             >
-              Last updated — May 2026
+              Last updated — July 2026
             </p>
-            <p className="mt-2 text-[13px] text-stone">最終更新日: 2026年5月</p>
+            <p className="mt-2 text-[13px] text-stone">最終更新日: 2026年7月</p>
           </Reveal>
         </div>
       </section>

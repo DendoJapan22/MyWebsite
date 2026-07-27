@@ -14,7 +14,7 @@ const WEB3FORMS_ACCESS_KEY =
 const SUBJECTS = [
   { value: "new", label: "新規サイト制作のご相談" },
   { value: "renewal", label: "既存サイトのリニューアル" },
-  { value: "meo", label: "MEO運用のみのご相談" },
+  { value: "meo", label: "MEO(Googleマップ対策)に関するご相談" },
   { value: "other", label: "その他" },
 ] as const;
 

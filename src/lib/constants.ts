@@ -14,10 +14,8 @@ export const SITE_CONFIG = {
 } as const;
 
 export const PRICING = {
-  initial: 78000,
-  initialTaxIn: 85800,
-  initialPartner: 39000,
-  initialPartnerTaxIn: 42900,
+  initial: 22000,
+  initialTaxIn: 24200,
   monthly: 3980,
   monthlyTaxIn: 4378,
   contractMonths: 12,
@@ -27,6 +25,7 @@ export const SERVICE_INCLUDES_INITIAL: readonly string[] = [
   "サイト制作(必要なボリュームで一式)",
   "ドメイン取得",
   "Google設定",
+  "Googleビジネスプロフィール構築(MEO初期最適化)",
   "公開作業",
 ];
 
@@ -35,9 +34,8 @@ export const SERVICE_INCLUDES_MONTHLY: readonly {
   note?: string;
 }[] = [
   { label: "サーバー・ドメイン管理" },
-  { label: "軽微な修正", note: "月3回・1回30分まで" },
+  { label: "軽微な修正", note: "月2回まで" },
   { label: "施工事例の追加", note: "月1件" },
-  { label: "MEO運用", note: "月4回投稿" },
   { label: "月次レポート" },
 ];
 
@@ -65,11 +63,11 @@ export const SERVICES = [
   },
   {
     number: "02",
-    title: "Googleマップ最適化(MEO)",
-    titleEn: "Local SEO",
+    title: "MEO初期構築(Googleマップ対策)",
+    titleEn: "Local SEO Setup",
     image: "/images/service-map-opt.webp",
     description:
-      "「お住まいの地域名 + 工務店」「地域名 + リフォーム」などの検索で上位表示を狙います。投稿の初稿はAIで下準備し、口コミの返信文は必ず人の手で仕上げます。Googleビジネスプロフィールの整備まで含みます。",
+      "「お住まいの地域名 + 工務店」「地域名 + リフォーム」などの検索で上位表示の土台を整えます。サイト公開と同時に、Googleビジネスプロフィールの新規作成・基本情報の整備・カテゴリ最適化・初回写真登録までを一括で対応いたします。公開後の月次投稿運用は含みません。",
   },
   {
     number: "03",
@@ -154,8 +152,8 @@ export const FAQ_ITEMS = [
     a: "対応しております。既存ページの内容を活かしつつ、デザイン・構成を整えて新しいサイトに作り直します。お見積もりは無料です。",
   },
   {
-    q: "MEO(Googleマップ最適化)とはどのようなことをするのですか?",
-    a: "Googleビジネスプロフィールの整備、月数回の投稿、口コミへの返信下書き作成、写真の追加など、上位表示に必要な作業を継続的に行います。月次で簡易レポートをお送りします。",
+    q: "MEO(Googleマップ最適化)はどこまで対応していただけますか?",
+    a: "初期費用に含まれる範囲で、Googleビジネスプロフィールの新規作成および初期最適化(基本情報の整備、業種カテゴリの選定、初回写真の登録など)まで対応いたします。公開後の継続的な投稿運用・口コミ返信などの月次MEO運用は、現在のプランには含まれておりません。ご希望の場合は別途お見積もりにてお受けいたします。",
   },
 ] as const;
 

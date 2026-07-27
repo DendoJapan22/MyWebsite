@@ -63,75 +63,19 @@ export function PriceSection() {
             }}
           >
             <div className="mx-auto max-w-[420px] md:px-6">
-              <div className="flex items-baseline justify-between gap-4">
-                <p
-                  className="text-[11px] tracking-[0.3em] uppercase"
-                  style={{
-                    fontFamily: "var(--font-en-display)",
-                    fontStyle: "italic",
-                    color: "var(--color-accent)",
-                  }}
-                >
-                  Initial Fee
-                </p>
+              <p
+                className="text-[11px] tracking-[0.3em] uppercase"
+                style={{
+                  fontFamily: "var(--font-en-display)",
+                  fontStyle: "italic",
+                  color: "var(--color-accent)",
+                }}
+              >
+                Initial Fee
+              </p>
 
-                {/* Limited-3 badge — brass tag */}
-                <div
-                  className="inline-flex items-center gap-2 px-2.5 py-1"
-                  style={{
-                    border: "1px solid var(--color-brass)",
-                    backgroundColor: "rgba(184, 134, 11, 0.07)",
-                    borderRadius: "2px",
-                  }}
-                >
-                  <span
-                    aria-hidden
-                    className="block size-[5px] rounded-full"
-                    style={{ backgroundColor: "var(--color-brass)" }}
-                  />
-                  <span
-                    className="text-[10px] tracking-[0.22em] uppercase"
-                    style={{
-                      fontFamily: "var(--font-en-display)",
-                      fontStyle: "italic",
-                      color: "var(--color-wood-deep)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    先着 3 社さま 半額
-                  </span>
-                </div>
-              </div>
-
-              {/* Strikethrough original price */}
-              <div className="mt-10 md:mt-14 flex items-baseline gap-3 mb-1">
-                <span
-                  aria-hidden
-                  className="line-through decoration-[1.5px] leading-none"
-                  style={{
-                    fontFamily: "var(--font-en-numeral)",
-                    color: "var(--color-stone)",
-                    fontSize: "clamp(1.5rem, 2.6vw, 2.1rem)",
-                    textDecorationColor: "var(--color-wood)",
-                    textDecorationThickness: "1.5px",
-                  }}
-                >
-                  {yen(PRICING.initial)}
-                </span>
-                <span
-                  className="text-[11px] tracking-[0.2em] uppercase"
-                  style={{
-                    fontFamily: "var(--font-en-display)",
-                    fontStyle: "italic",
-                    color: "var(--color-stone)",
-                  }}
-                >
-                  通常価格
-                </span>
-              </div>
-
-              {/* Big discounted price — the visual centrepiece */}
-              <div className="flex items-baseline gap-3">
+              {/* Headline price — the visual centrepiece */}
+              <div className="mt-10 md:mt-14 flex items-baseline gap-3">
                 <span
                   className="leading-none text-ink"
                   style={{
@@ -141,12 +85,12 @@ export function PriceSection() {
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  {yen(PRICING.initialPartner)}
+                  {yen(PRICING.initial)}
                 </span>
               </div>
               <span aria-hidden className="mt-6 block h-px w-20 bg-ink" />
               <p className="mt-5 text-[13.5px] tracking-[0.05em] text-ink-soft/80">
-                税抜 / 税込 {yen(PRICING.initialPartnerTaxIn)}
+                税抜 / 税込 {yen(PRICING.initialTaxIn)}
               </p>
 
               <ul className="mt-12 space-y-4">
@@ -175,26 +119,21 @@ export function PriceSection() {
             }}
           >
             <div className="mx-auto max-w-[420px] md:px-6">
-              {/* Wrapper height-matched to the Initial column's label row,
-                  whose height is set by the "先着 3 社さま 半額" badge — keeps
-                  the two columns vertically in step. */}
-              <div className="flex md:min-h-[1.75rem] md:items-end">
-                <p
-                  className="text-[11px] tracking-[0.3em] uppercase"
-                  style={{
-                    fontFamily: "var(--font-en-display)",
-                    fontStyle: "italic",
-                    color: "var(--color-accent)",
-                  }}
-                >
-                  Monthly Fee
-                </p>
-              </div>
+              <p
+                className="text-[11px] tracking-[0.3em] uppercase"
+                style={{
+                  fontFamily: "var(--font-en-display)",
+                  fontStyle: "italic",
+                  color: "var(--color-accent)",
+                }}
+              >
+                Monthly Fee
+              </p>
 
-              {/* Figure zone height-matched to the Initial column
-                  (strikethrough row + headline figure) so ¥3,980 rests on
-                  the same baseline as ¥39,000 across the magazine spread. */}
-              <div className="mt-12 flex md:mt-14 md:items-end md:min-h-[calc(clamp(1.5rem,2.6vw,2.1rem)_+_0.25rem_+_clamp(4.4rem,10.5vw,7.6rem))]">
+              {/* Figure zone height-matched to the Initial column's headline
+                  figure so ¥3,980 rests on the same baseline as ¥22,000
+                  across the magazine spread. */}
+              <div className="mt-10 flex md:mt-14 md:items-end md:min-h-[clamp(4.4rem,10.5vw,7.6rem)]">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <span
                     className="leading-none text-ink-soft"
@@ -251,8 +190,7 @@ export function PriceSection() {
               className="text-[13.5px] leading-[2] text-stone"
               style={{ fontFamily: "var(--font-jp-body)" }}
             >
-              ※ 第1期パートナー(先着3社さま)限定の半額価格。4社目以降は通常 {yen(PRICING.initial)}(税込 {yen(PRICING.initialTaxIn)})となります。
-              <br />※ ページ数の上限は設けておりません。必要なボリュームでサイトを一式承ります。
+              ※ ページ数の上限は設けておりません。必要なボリュームでサイトを一式承ります。
               <br />※ {PRICING.contractMonths}ヶ月のご契約をお願いしております。
               <br />※ 上記制限を超える作業や、大幅なデザイン変更・新規ページ追加等は別途お見積もりにて承ります。
             </p>

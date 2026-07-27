@@ -141,7 +141,7 @@ export default async function OpengraphImage() {
               letterSpacing: "0.04em",
             }}
           >
-            初期費用 ¥39,000 / 月額運用費 ¥3,980 — すべて込み。
+            初期費用 ¥22,000 / 月額運用費 ¥3,980 — すべて込み。
           </div>
         </div>
 

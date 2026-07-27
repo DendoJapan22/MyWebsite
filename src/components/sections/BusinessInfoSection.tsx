@@ -15,7 +15,7 @@ const INFO_ROWS: { label: string; value: string }[] = [
   },
   {
     label: "事業内容",
-    value: "地方の工務店向けWebサイト制作、Googleマップ最適化(MEO)運用、施工事例ページの継続更新",
+    value: "地方の工務店向けWebサイト制作、Googleマップ最適化(MEO)初期構築、施工事例ページの継続更新",
   },
 ];
 

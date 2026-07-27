@@ -55,7 +55,7 @@ const sourceSans = Source_Sans_3({
 });
 
 const SITE_DESCRIPTION =
-  "地方の工務店専門のWeb制作。第1期パートナー(先着3社)初期費用半額 39,000円(税抜)、月額運用費 3,980円から。Drasilが運営する「ドラシルデジタル」がご提供します。";
+  "地方の工務店専門のWeb制作。初期費用 22,000円(税抜)、月額運用費 3,980円から。Drasilが運営する「ドラシルデジタル」がご提供します。";
 
 export const metadata: Metadata = {
   title: {
@@ -88,7 +88,7 @@ const jsonLd = {
   telephone: SITE_CONFIG.phone,
   email: SITE_CONFIG.email,
   serviceType: "工務店向けWebサイト制作",
-  priceRange: "¥39,000〜¥78,000",
+  priceRange: "¥22,000〜",
   inLanguage: "ja-JP",
   foundingDate: "2026-05",
   founder: {
@@ -107,7 +107,8 @@ const jsonLd = {
   knowsAbout: [
     "Webサイト制作",
     "Googleマップ最適化",
-    "MEO運用",
+    "MEO初期構築",
+    "Googleビジネスプロフィール構築",
     "工務店向けWeb集客",
     "施工事例ページ制作",
   ],

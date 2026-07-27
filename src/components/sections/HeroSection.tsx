@@ -285,33 +285,6 @@ export function HeroSection() {
                     containerType: "inline-size",
                   }}
                 >
-                  {/* Limited-3 badge: brass-bordered tag */}
-                  <div
-                    className="inline-flex items-center gap-2 px-3 py-1.5 mb-5"
-                    style={{
-                      border: "1px solid var(--color-brass)",
-                      backgroundColor: "rgba(184, 134, 11, 0.07)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    <span
-                      aria-hidden
-                      className="block size-[5px] rounded-full"
-                      style={{ backgroundColor: "var(--color-brass)" }}
-                    />
-                    <span
-                      className="text-[10px] md:text-[10.5px] tracking-[0.26em] uppercase"
-                      style={{
-                        fontFamily: "var(--font-en-display)",
-                        fontStyle: "italic",
-                        color: "var(--color-wood-deep)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      先着 3 社さま 限定 / Half price
-                    </span>
-                  </div>
-
                   <p
                     className="text-[12px] md:text-[13px] tracking-[0.2em] mb-3"
                     style={{
@@ -323,24 +296,7 @@ export function HeroSection() {
                     初期費用
                   </p>
 
-                  {/* Strikethrough original price — supporting context for the discount */}
-                  <div className="flex items-baseline gap-3 mb-1.5">
-                    <span
-                      aria-hidden
-                      className="line-through decoration-[1.5px] leading-none"
-                      style={{
-                        fontFamily: "var(--font-en-numeral)",
-                        color: "var(--color-stone)",
-                        fontSize: "clamp(1.4rem, 2.4vw, 2.1rem)",
-                        textDecorationColor: "var(--color-wood)",
-                        textDecorationThickness: "1.5px",
-                      }}
-                    >
-                      ¥78,000
-                    </span>
-                  </div>
-
-                  {/* GIANT discounted price — the visual hero */}
+                  {/* GIANT headline price — the visual hero */}
                   <div className="flex items-start gap-2 md:gap-3">
                     <span
                       aria-hidden
@@ -364,7 +320,7 @@ export function HeroSection() {
                         fontWeight: 400,
                       }}
                     >
-                      39,000
+                      22,000
                     </span>
                   </div>
 
@@ -376,7 +332,7 @@ export function HeroSection() {
                       lineHeight: 1.75,
                     }}
                   >
-                    税抜 / 税込 ¥42,900
+                    税抜 / 税込 ¥24,200
                   </p>
                 </motion.div>
 
@@ -443,7 +399,7 @@ export function HeroSection() {
                       lineHeight: 1.75,
                     }}
                   >
-                    税込 ¥4,378 / サーバー・更新・MEO運用 すべて込み
+                    税込 ¥4,378 / サーバー・更新・サポート すべて込み
                   </p>
                 </motion.div>
 
