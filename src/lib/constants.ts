@@ -48,7 +48,6 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const LEGAL_LINKS = [
-  { href: "/#about", label: "Drasilについて" },
   { href: "/legal/commerce", label: "特定商取引法に基づく表記" },
 ] as const;
 

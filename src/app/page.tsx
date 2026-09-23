@@ -9,7 +9,6 @@ import { PriceSection } from "@/components/sections/PriceSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { WorksTeaserSection } from "@/components/sections/WorksTeaserSection";
 import { AboutLetter } from "@/components/sections/AboutLetter";
-import { DrasilOriginSection } from "@/components/sections/DrasilOriginSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { BusinessInfoSection } from "@/components/sections/BusinessInfoSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -90,7 +89,6 @@ export default function HomePage() {
 
       <div id="about" className="scroll-mt-24">
         <AboutLetter />
-        <DrasilOriginSection />
       </div>
 
       <div id="faq" className="scroll-mt-24">
