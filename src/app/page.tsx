@@ -18,9 +18,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FAQ_ITEMS, SITE_CONFIG } from "@/lib/constants";
 
 const HOME_TITLE =
-  "工務店専門のホームページ制作・MEO初期構築 | 初期費用22,000円・月額3,980円";
+  "工務店専門のホームページ制作・MEO初期構築 | 初期費用33,000円・月額3,980円";
 const HOME_DESCRIPTION =
-  "地方の工務店向けWebサイト制作・Googleビジネスプロフィール初期構築(MEO対策)。初期費用22,000円(税抜)、月額運用費3,980円から。AI効率化と人の手仕上げで、集客につながるホームページを。";
+  "地方の工務店向けWebサイト制作・Googleビジネスプロフィール初期構築(MEO対策)。初期費用33,000円(税抜)、月額運用費3,980円から。AI効率化と人の手仕上げで、集客につながるホームページを。";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },

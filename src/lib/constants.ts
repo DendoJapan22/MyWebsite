@@ -14,8 +14,8 @@ export const SITE_CONFIG = {
 } as const;
 
 export const PRICING = {
-  initial: 22000,
-  initialTaxIn: 24200,
+  initial: 33000,
+  initialTaxIn: 36300,
   monthly: 3980,
   monthlyTaxIn: 4378,
   contractMonths: 12,

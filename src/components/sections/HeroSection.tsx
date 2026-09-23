@@ -320,7 +320,7 @@ export function HeroSection() {
                         fontWeight: 400,
                       }}
                     >
-                      22,000
+                      33,000
                     </span>
                   </div>
 
@@ -332,7 +332,7 @@ export function HeroSection() {
                       lineHeight: 1.75,
                     }}
                   >
-                    税抜 / 税込 ¥24,200
+                    税抜 / 税込 ¥36,300
                   </p>
                 </motion.div>
 

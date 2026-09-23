@@ -151,7 +151,7 @@ export function WorksGrid() {
         {/* Note */}
         <Reveal delay={0.24}>
           <p className="mt-12 md:mt-14 text-[12.5px] leading-[2] text-stone max-w-[36rem]">
-            ※ 初期費用 ¥22,000(税抜)/ ¥24,200(税込)にてご提供いたします。お気軽にご相談ください。
+            ※ 初期費用 ¥33,000(税抜)/ ¥36,300(税込)にてご提供いたします。お気軽にご相談ください。
           </p>
         </Reveal>
       </div>
