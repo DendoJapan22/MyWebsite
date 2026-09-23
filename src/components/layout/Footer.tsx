@@ -72,7 +72,7 @@ export function Footer() {
               地方工務店向けのWeb制作サービスです。
             </p>
             <Link
-              href="/about"
+              href="/#about"
               className="group mt-6 inline-flex items-baseline gap-2 text-[13.5px] tracking-[0.14em] text-paper/85 hover:text-paper transition-colors"
             >
               <span>{SITE_CONFIG.parentName}について</span>

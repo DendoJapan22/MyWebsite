@@ -78,14 +78,6 @@ test.describe("/works リダイレクト", () => {
   });
 });
 
-test.describe("/about (長文の代表手記)", () => {
-  test("AboutEssay の章タイトルが表示される", async ({ page }) => {
-    await page.goto("/about");
-    await expect(page.getByText("代表の手記。")).toBeVisible();
-    await expect(page.getByText(/紹介と口コミだけでは/).first()).toBeVisible();
-  });
-});
-
 test.describe("特定商取引法ページ", () => {
   test("プレースホルダー文字列が残っていない", async ({ page }) => {
     await page.goto("/legal/commerce");

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function CraftBalanceSection() {
@@ -56,21 +55,6 @@ export function CraftBalanceSection() {
             <br className="hidden md:block" />
             そうして、低価格と職人さまのお仕事に見合うサイトを両立しています。
           </p>
-        </Reveal>
-
-        <Reveal delay={0.32}>
-          <Link
-            href="/about"
-            className="group mt-10 md:mt-14 inline-flex items-baseline gap-3 text-[13.5px] tracking-[0.18em] text-ink"
-          >
-            <span className="link-underline">代表の手記を読む(全文)</span>
-            <span
-              aria-hidden
-              className="text-accent transition-transform duration-300 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
         </Reveal>
       </div>
     </section>
